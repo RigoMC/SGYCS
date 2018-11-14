@@ -1,0 +1,47 @@
+<div class="col-lg-12">
+  <div class="row mgNb">
+    <div class="col-md-8">
+      <div class="col-lg-12">
+        <h2>Comanda: # {{folioComanda}}</h2>
+      </div>
+      <div class="col-lg-12 row">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-outline-info btn-block" [routerLink]="['/Inicio', 1]">
+            Generar Nueva Comanda
+          </button>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
+    </div>
+    <div class="col-md-4 alert alert-info">
+      <h2>Total: {{totalt | currency}}</h2>
+    </div>
+  </div>
+
+
+  <br>
+
+  <!--Espacio para generar el pedido-->
+  <div class="col-sm-12">
+    <div class="card">
+      <!--barra presentacion de agregar-->
+      <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Pedido #{{npedido+1}}</span>
+        <button type="button" class="btn btn-default btn-outline-secondary" (click)="agregarPed()">Agregar</button>
+      </nav>
+      <!--barra presentacion de agregar-->
+
+        <!--espacio de muestra de pedidos y de -->
+        <div class="col-lg-12 row">
+          <div class="col-md-3">
+            <app-pedido *ngFor="let k of list;let i = index " [n]="list[i]" [t]="total[i]"></app-pedido>
+          </div>
+          <div class="col-md-9">
+            <app-addped (detectc)="asignarC($event)" (detectp)="asignarP($event)" (detectprod)="asignarProd($event)"></app-addped>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="alert alert-success col-lg-12" role="alert" *ngIf="nada">
+  No existen productos registrados
+</div>
+<div class="row">
+
+  <div class="card col-md-6 mgT" *ngFor="let k of productos | productos;let i = index">
+    <div class="card-body">
+      <h3 class="card-title text-center">{{productos[k].nombre}}</h3>
+      <p class="card-subtitle mb-2 text-muted text-center">{{productos[k].descripcion}}</p>
+      <p class="card-text text-center">
+        Cantidad: <b>{{cantidades[i]}}</b><br>
+        Costo por unidad: <b>{{productos[k].precio | currency}}</b>
+        Cantidad Actual: <b>{{productos[k].posible}}</b>
+      </p>
+      <div class="row">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-default btn-outline-secondary btn-block" (click)="sumar(i,productos[k].precio,k)">
+            <h5><img src="./../../../../assets/add.png" class="img-fluid pull-xs-left" alt="ADD"></h5>
+          </button>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-default btn-outline-secondary btn-block" (click)="restar(i,productos[k].precio)">
+            <h5><img src="./../../../../assets/less.png" class="img-fluid pull-xs-left" alt="ADD"></h5>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,31 @@
+.bgNav
+{
+  background-color: #f1f1f1;
+  border-radius: 1em;
+  margin-top: 0.5em;
+}
+
+.mgTb
+{
+  margin-top: 0.5em;
+}
+
+.mgR
+{
+  margin-top: 0.3em;
+}
+
+.separador
+{
+  height: 0.2em;
+  background-color: #f1f1f1;
+  margin-top: 0.2em;
+}
+
+.th
+{
+  background-color: #000;
+  color: #fff;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}

@@ -1,0 +1,49 @@
+<div class="row mgNb">
+  <div class="col-md-10">
+    <h2>Estadisticas</h2>
+  </div>
+</div>
+<br><br>
+
+
+  <div class="row col-md-12 " width="50%">
+     <div class="col-md-2"></div>
+     <div class="col-md-8">
+       <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <button type="button" name="button" (click)="llenar()" class="btn btn-block btn-success" > <h2>Generar</h2> </button>
+                </li>
+                <li class="list-group-item"> <h3><b>Dia más vendido:</b> {{diamv}}</h3> </li>
+                <li class="list-group-item"> <h3><b>Producto más vendido:</b> {{productomv}}</h3> </li>
+                <li class="list-group-item"> <h3><b>Ganancias del dia:</b> {{gananciasD | currency}}</h3> </li>
+                <li class="list-group-item"> <h3><b>Ganacias:</b> {{gananciasT | currency}}</h3> </li>
+            </ul>
+        </div>
+     </div>
+  </div>
+
+<br><br>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Folio</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Pedidos</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of comandas | comanda; let i = index;">
+      <td scope="row">{{i+1}}</td>
+      <td>{{c}}</td>
+      <td>{{comandas[c].fecha}}</td>
+      <td>{{comandas[c].pedido | pedido}}</td>
+      <td>
+        <button type="button" name="button" (click)="borrarComanda(c)" class="btn btn-outline-danger">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

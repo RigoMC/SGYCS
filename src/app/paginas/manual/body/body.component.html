@@ -1,0 +1,51 @@
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" (click)="mostrar(0)">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="mostrar(1)">Almacen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="mostrar(2)">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="mostrar(3)">Personal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="mostrar(4)">Estadisticas</a>
+      </li>
+    </ul>
+  </div>
+
+  <br>
+  <div class="col-lg-12 row" *ngIf="inicio">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="./../../../../../assets/pi.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">
+            Manual de Usuario
+          </h5>
+          <p class="card-text text-justify">
+            Este apartado esta destinado a mostrar de manera breve con videos y texto, la manera correcta
+            en que se usa el sistema, los pasos a seguir para crear, modificar o eliminar las opciones posibles que
+            presenta el sistema.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+
+
+  <app-malmacen *ngIf="alma" ></app-malmacen>
+  <app-mcomandas *ngIf="coma"></app-mcomandas>
+  <app-mestadisticas *ngIf="esta"></app-mestadisticas>
+  <app-mpersonal *ngIf="pers"></app-mpersonal>
+  <app-mproductos *ngIf="prod"></app-mproductos>

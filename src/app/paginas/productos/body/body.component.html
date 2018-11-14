@@ -1,0 +1,52 @@
+<div class="col-lg-12">
+
+  <div class="row bgNav">
+    <div class="col-md-10">
+      <h2>Productos</h2>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-default btn-outline-secondary" (click)="nuevo = !nuevo">
+          <h5>Nuevo <img src="./../../../../assets/add.png" class="img-fluid pull-xs-left" alt="ADD"></h5>
+        </button>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <app-add-prod *ngIf="nuevo" (detect)="recargar();"></app-add-prod>
+  </div>
+
+  <div class="col-lg-12 row mgTb">
+
+<!--Cards para ver los datos-->
+    <div class="card wC col-md-4" *ngFor="let k of productos | productos; let i = indexz">
+      <!--<img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">-->
+      <div class="card-body">
+        <h5 class="card-title">{{productos[k].nombre}}<br> {{productos[k].precio | currency}}</h5>
+        <p class="card-text">Descripcion: <br>{{productos[k].descripcion}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Materiales: </b>{{traductor(productos[k].materiales)}}</li>
+        <li class="list-group-item"><b>Cantidades: </b>{{productos[k].cantidades}}</li>
+        <li class="list-group-item"><b>Cantidad disponible: </b>{{productos[k].posible}} <i>piezas</i></li>
+      </ul>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-default btn-outline-warning btn-block" (click)="abrirModificar(k);">Editar</button>
+          </div>
+          <div class="col-md-6">
+            <button type="button" class="btn btn-default btn-outline-danger btn-block" (click)="borrar(k);" >Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--div de edicion-->
+    <div class="col-sm-12 mgTb">
+      <app-modify-ped *ngIf="memoria" [k]="llave" (detect)="recargar($event);"></app-modify-ped>
+    </div>
+
+  </div>
+
+</div>

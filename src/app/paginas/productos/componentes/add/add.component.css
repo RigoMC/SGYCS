@@ -1,0 +1,28 @@
+.margenes
+{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.bgG
+{
+  background-color: #f1f1f1;
+  outline-style: groove;
+  outline-color: #c0c0c0;
+  outline-width: thin;
+}
+
+.mgT
+{
+  margin-top: 0.7em;
+}
+
+.mgTT
+{
+  margin-top: 35%;
+}
+
+.mgL
+{
+  margin-left: 1.5em;
+}

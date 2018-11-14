@@ -1,0 +1,29 @@
+.mgNb
+{
+  background-color: #f1f1f1;
+  border-radius: 1em;
+  margin-top: 0.5em;
+}
+
+.mgTb
+{
+    margin-top: 0.5em;
+}
+
+.th
+{
+  background-color: #000;
+  color: #fff;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.mgR
+{
+  margin-top: 0.3em;
+}
+
+.wC
+{
+  width: 18rem;
+}

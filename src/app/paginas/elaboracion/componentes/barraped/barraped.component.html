@@ -1,0 +1,21 @@
+
+
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div class="col-md-12 row">
+        <div class="col-md-6">
+          <button class="btn btn-outline-info btn-lg btn-block" (click)="alert(1);">Recargar</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-outline-success btn-lg btn-block" (click)="elaborar();" *ngIf="llave != ''">Hecho</button>
+        </div>
+      </div>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let k of comandas; let i = index;">
+    <button type="button" class="btn btn-secondary" (click)="emitirComanda(k);">
+      <b>Comanda #{{i+1}}</b>: {{k}}
+    </button>
+    <span class="badge badge-primary badge-pill">{{contarPed(k)}}</span>
+  </li>
+</ul>

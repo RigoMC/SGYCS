@@ -1,0 +1,16 @@
+<br>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-sm-4">
+      <app-barraped (detect)="cargarPedidos($event);" (detect2)="cargarPedidos($event);"></app-barraped>
+    </div>
+    <div class="col-sm-8 row" *ngIf="!memoria">
+      <app-cards [id]="i+1" [p]="k" class="col-md-4" *ngFor="let k of pedidos; let i = index"></app-cards>
+    </div>
+    <div class="col-sm-8 row" *ngIf="memoria">
+      <div class="alert alert-warning text-center" role="alert">
+        <h2>No existen comandas.</h2>
+      </div>
+    </div>
+  </div>
+</div>

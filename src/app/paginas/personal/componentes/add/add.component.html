@@ -1,0 +1,130 @@
+<div class="card margenes">
+  <div class="row">
+    <div class="col-md-3 bgG text-center">
+      <h3 class="mgTT">Nuevo Personal</h3>
+    </div>
+  <!--inputs-->
+  <div class="col-md-8 row mgL">
+    <form (ngSubmit)="guardar()" #forma="ngForm">
+      <div class="form-group row">
+
+          <!--input para nombre row:0-->
+          <div class="input-group col-md-12 mgT">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Nombre Completo:</span>
+            </div>
+            <input [(ngModel)]="personal.nombre"
+              name="nombre"
+              type="tarea"
+              class="form-control"
+              placeholder="Nombre"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm" required>
+              <input [(ngModel)]="personal.apellidop"
+                name="apellidop"
+                type="text"
+                class="form-control"
+                placeholder="Apellido Paterno"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm" required>
+                <input [(ngModel)]="personal.apellidom"
+                  name="apellidom"
+                  type="text"
+                  class="form-control"
+                  placeholder="Apellido Materno"
+                  aria-label="Small"
+                  aria-describedby="inputGroup-sizing-sm">
+          </div>
+
+          <!--input para telefono y rfc row:1-->
+          <div class="input-group input-group-sm mb-3 col-md-6 mgT">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Telefono:</span>
+            </div>
+            <input [(ngModel)]="personal.tel"
+              name="tel"
+              type="text"
+              placeholder="Telefono"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm">
+          </div>
+
+          <div class="input-group input-group-sm mb-3 col-md-6 mgT">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Sexo:</span>
+            </div>
+            <select class="custom-select" id="inputGroupSelect0" name="sexo" [(ngModel)]="personal.sexo" required>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
+          </div>
+
+          <!--input para RFC row:2-->
+          <div class="input-group input-group-sm mb-3 col-md-12 mgT">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">RFC:</span>
+            </div>
+            <input [(ngModel)]="personal.rfc"
+              name="rfc"
+              type="text"
+              step="any"
+              placeholder="RFC"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm">
+          </div>
+
+          <!--input para RFC row:3-->
+          <div class="input-group input-group-sm mb-3 col-md-12 mgT">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Curp:</span>
+            </div>
+            <input [(ngModel)]="personal.curp"
+              name="curp"
+              type="text"
+              placeholder="Curp"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm" required>
+          </div>
+
+
+          <!--input para colonia y direccion row:4-->
+          <div class="input-group input-group-sm mb-3 col-md-6 mgT">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Colonia:</span>
+            </div>
+            <select class="custom-select" id="inputGroupSelect0" name="colonia" [(ngModel)]="personal.colonia" required>
+                <option value="Celaya Centro">Celaya Centro</option>
+                <option value="Rancho seco">Rancho seco</option>
+                <option value="Su corazón">Fovisste :'v (que triste we)</option>
+                <option value="Campo azul">Campo azul</option>
+                <option value="El Campanario">El Campanario</option>
+                <option value="Rincón de Tamayo">Rincón de Tamayo</option>
+            </select>
+          </div>
+
+          <div class="input-group input-group-sm mb-3 col-md-6 mgT">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Dirección:</span>
+            </div>
+            <input [(ngModel)]="personal.direccion"
+              name="direccion"
+              type="text"
+              placeholder="Ejem. Calle #000"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm" required>
+          </div>
+
+          <div class="input-group input-group-sm mb-3 col-md-12 mgT">
+            <button [disabled]="!forma.valid"
+                    type="submit" class="btn btn-secondary btn-lg btn-block">Añadir</button>
+          </div>
+      </div>
+    </form>
+  </div>
+
+  </div>
+</div>

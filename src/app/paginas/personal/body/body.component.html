@@ -1,0 +1,59 @@
+<div class="col-lg-12">
+
+    <!--Barra de acciones-->
+    <div class="row bgNav">
+      <div class="col-md-10">
+        <h2>Personal</h2>
+      </div>
+      <div class="col-md-2">
+          <button type="button" class="btn btn-default btn-outline-secondary" (click)="nuevo = !nuevo">
+            <h5>Nuevo <img src="./../../../../assets/add.png" class="img-fluid pull-xs-left" alt="ADD"></h5>
+          </button>
+      </div>
+    </div>
+
+    <!--sección que sera modificada por enlaces-->
+
+    <div class="col-lg-12" *ngIf="nuevo">
+      <app-add-per (detect)="recargar();" ></app-add-per>
+    </div>
+    <div class="col-lg-12 mgTb">
+
+<!--Tabla para ver los datos-->
+      <!--Thead-->
+      <div class="row th">
+        <div class="col-md-1"><h2>#</h2></div>
+        <div class="col-md-2 text-center"><h2>Nombre</h2></div>
+        <div class="col-md-1"><h2>Telefono</h2></div>
+        <div class="col-md-3 text-center"><h2>Curp</h2></div>
+        <div class="col-md-2 text-center"><h2>RFC</h2></div>
+        <div class="col-md-3 text-center"><h2>Opciones</h2></div>
+      </div>
+      <!--Tbody-->
+      <div class="row mgR" *ngFor="let k of personales | personal; let i = index">
+        <div class="col-md-1">{{i+1}}</div>
+        <div class="col-md-2">{{personales[k].nombre}} {{personales[k].apellidop}} {{personales[k].apellidom}}</div>
+        <div class="col-md-1">{{personales[k].tel}}</div>
+        <div class="col-md-3 text-right">{{personales[k].curp}}</div>
+        <div class="col-md-2 text-center">{{personales[k].rfc}}</div>
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-default btn-outline-warning btn-block" (click)="abrirModificar(k);">Editar</button>
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-default btn-outline-danger btn-block" (click)="borrar(k);" >Eliminar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 separador">
+
+        </div>
+      </div>
+      <!--div de edicion-->
+      <div class="col-lg-12">
+        <app-modify-per *ngIf="memoriak" [k]="llave" (detect)="recargar();"></app-modify-per>
+      </div>
+
+    </div>
+</div>

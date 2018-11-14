@@ -1,0 +1,87 @@
+<div class="card">
+  <div class="card-body">
+<!--Inicio de instruccciones-->
+    <form (ngSubmit)="recargarMateriales(0)" #forma="ngForm">
+        <div class="col-lg-12 row text-left">
+          <div class="col-md-10">
+            <h5>Elige los materiales que ocupas en la elaboracion del producto.</h5>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-success" [disabled]="!forma.valid">Agregar</button>
+          </div>
+        </div>
+<!--Inicio de instrucciones-->
+<br>
+<!--Inicio de Inputs-->
+
+      <div class="form-group">
+        <div class="col-ld-12 row">
+          <div class="col-md-12">
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Materiales</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01" name="nombre" [(ngModel)]="material.nombre" required>
+                    <option value="x">Elige un Material...</option>
+                    <option *ngFor="let k of materiales | material; let i = index" value="{{k}}">{{materiales[k].nombre}} || {{materiales[k].descripcion}}</option>
+                  </select>
+                </div>
+          </div>
+
+          <div class="input-group input-group-sm mb-3 col-md-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Gasto:</span>
+            </div>
+            <input [(ngModel)]="material.cantidad"
+              name="cantidad"
+              type="number"
+              placeholder="Ejem. 2"
+              step="any"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm" required>
+          </div>
+
+          <div class="input-group mb-3 col-md-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Unidad:</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" name="unidad" [(ngModel)]="material.unidad" required>
+              <option value="Kg">Kilogramos</option>
+              <option value="Gr">Gramos</option>
+              <option value="Pz">Piezas</option>
+              <option value="L">Litros</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+<!--Fin de Inputs-->
+<!--Inicio de mostrar componentes-->
+    <div class="col-lg-12 row">
+      <div class="col-md-12">
+        <h4>Materiales agregados:</h4>
+      </div>
+      <div class="col-md-6" *ngFor="let k of mm; let i = index">
+        <div class="col-md-12">
+          <div class="alert alert-primary ">
+            {{materiales[k].nombre}}: {{cc[i]}}
+            <button type="button" class="btn btn-sm btn-danger btn-block" (click)="borrar(i);">Borrar</button>
+          </div>
+        </div>
+
+      </div>
+      <br>
+      <div class="col-md-12">
+        <div class="alert alert-warning" role="alert">
+          <h5>Una vez hayas agregado los materiales, <br> espera a que se te indique para poder añadir el producto.</h5>
+        </div>
+      </div>
+    </div>
+<!--Fin de mostrar componentes-->
+
+
+
+  </div>
+</div>

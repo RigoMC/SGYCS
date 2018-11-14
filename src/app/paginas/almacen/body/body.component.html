@@ -1,0 +1,57 @@
+<div class="col-lg-12">
+
+    <!--Barra de acciones-->
+    <div class="row bgNav">
+      <div class="col-md-10">
+        <h2>Materiales</h2>
+      </div>
+      <div class="col-md-2">
+          <button type="button" class="btn btn-default btn-outline-secondary" (click)="nuevo = !nuevo">
+            <h5>Nuevo <img src="./../../../../assets/add.png" class="img-fluid pull-xs-left" alt="ADD"></h5>
+          </button>
+      </div>
+    </div>
+
+    <!--sección que sera modificada por enlaces-->
+
+    <div class="col-lg-12" *ngIf="nuevo">
+      <app-add (detect)="recargar();" ></app-add>
+    </div>
+    <div class="col-lg-12 mgTb">
+
+<!--Tabla para ver los datos-->
+      <!--Thead-->
+      <div class="row th">
+        <div class="col-md-1 "><h2>#</h2></div>
+        <div class="col-md-2 "><h2>Nombre</h2></div>
+        <div class="col-md-4 "><h2>Descripción</h2></div>
+        <div class="col-md-3 "><h2>Cantidad</h2></div>
+        <div class="col-md-2 text-center"><h2>Opciones</h2></div>
+      </div>
+      <!--Tbody-->
+      <div class="row mgR" *ngFor="let k of materiales | material; let i = index">
+        <div class="col-md-1">{{i+1}}</div>
+        <div class="col-md-2">{{materiales[k].nombre}}</div>
+        <div class="col-md-4">{{materiales[k].descripcion}}</div>
+        <div class="col-md-3 ">{{materiales[k].cantidad}} {{materiales[k].unidad}} <p *ngIf="materiales[k].relacion != '' ">Relación: {{materiales[k].relacion}}</p> </div>
+        <div class="col-md-2">
+          <div class="row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-default btn-outline-warning btn-block" (click)="abrirModificar(k);">Editar</button>
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-default btn-outline-danger btn-block" (click)="borrar(k);" >Eliminar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 separador">
+
+        </div>
+      </div>
+      <!--div de edicion-->
+      <div class="col-lg-12">
+        <app-modify-alm *ngIf="memoriak" [k]="llave"  (detect)="recargar();"></app-modify-alm>
+      </div>
+
+    </div>
+</div>

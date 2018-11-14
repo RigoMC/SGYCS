@@ -1,0 +1,46 @@
+<nav class="navbar navbar-light bg-dark">
+  <span class="navbar-brand mb-0 h1" *ngIf="!auth.isAuthenticated()">Sistema de Gestión y Control</span>
+  <p class="navbar-brand mb-0 h1" style="color:#fff" *ngIf="auth.isAuthenticated()"><b><i>Bienvenido: </i></b><i>{{ profile?.nickname}}</i></p>
+  <div>
+      <button type="button" class="btn btn-outline-success" (click)="login()" *ngIf="!auth.isAuthenticated()">
+        Ingresar
+      </button>
+      <button type="button" class="btn btn-outline-danger" (click)="logout()" *ngIf="auth.isAuthenticated()">
+        Salir
+      </button>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li>
+        <a [routerLink]="['Inicio']" class="nav-link"><h4>Inicio</h4></a>
+      </li>
+      <li>
+        <a [routerLink]="['Almacen']" class="nav-link" *ngIf="auth.isAuthenticated()"><h4>Almacen</h4></a>
+      </li>
+      <li>
+        <a [routerLink]="['Comandas']" class="nav-link" *ngIf="auth.isAuthenticated()"><h4>Comandas</h4></a>
+      </li>
+      <li>
+        <a [routerLink]="['Personal']" class="nav-link" *ngIf="auth.isAuthenticated()"><h4>Personal</h4></a>
+      </li>
+      <li>
+        <a [routerLink]="['Productos']" class="nav-link" *ngIf="auth.isAuthenticated()"><h4>Productos</h4></a>
+      </li>
+      <li>
+        <a [routerLink]="['Estadisticas']" class="nav-link" *ngIf="auth.isAuthenticated()"><h4>Estadisticas</h4></a>
+      </li>
+      <li>
+        <a [routerLink]="['Elaboracion']" class="nav-link" *ngIf="auth.isAuthenticated()"><h4>Elaboración</h4></a>
+      </li>
+      <li>
+        <a [routerLink]="['Manual']" class="nav-link" *ngIf="auth.isAuthenticated()"><h4>Manual</h4></a>
+      </li>
+    </ul>
+  </div>
+</nav>
